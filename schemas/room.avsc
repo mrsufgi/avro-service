@@ -1,0 +1,12 @@
+{
+  "name": "room",
+  "fields": [
+    { "name": "number", "type": "int" },
+    { "name": "name", "type": "string" },
+    {
+      "name": "boundaryPoints",
+      "type": "array",
+      "items": "point"
+    }
+  ]
+}

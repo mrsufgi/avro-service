@@ -1,0 +1,4 @@
+{
+  "name": "line",
+  "fields": [{ "name": "start", "type": "point" }, { "name": "end", "type": "point" }]
+}

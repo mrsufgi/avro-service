@@ -1,0 +1,25 @@
+{
+  "name": "bmd-service",
+  "version": "1.0.0",
+  "description": "The purpose of this exercise is to test your nodejs coding skills, and your logical thinking.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "test": "NODE_ENV=TEST jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-jest": "^22.6.4",
+    "eslint-plugin-node": "^9.1.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "uuid": "^3.3.2"
+  }
+}

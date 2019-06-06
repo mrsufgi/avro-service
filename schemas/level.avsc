@@ -1,0 +1,16 @@
+{
+  "name": "level",
+  "fields": [
+    { "name": "number", "type": "int" },
+    {
+      "name": "rooms",
+      "type": "array",
+      "items": "room"
+    },
+    {
+      "name": "architect",
+      "type": "record",
+      "fields": [{ "name": "name", "type": "string" }, { "name": "age", "type": "int" }, { "name": "company", "type": "string" }]
+    }
+  ]
+}
