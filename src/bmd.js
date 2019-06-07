@@ -1,29 +1,24 @@
 const fs = require('fs');
 
 const extension = '.avsc';
+const fieldTypes = ['int', 'float', 'long', 'string', 'boolean', 'array', 'record'];
 
 let schemas;
 let path;
 
-function getFileName(fullName) {
-  return fullName
-    .split('.')
-    .slice(0, -1)
-    .join('.');
-}
-
 function parseschema(schemaFile) {
-  const schema = JSON.parse(schemaFile);
-  return schema;
+  const { fields, ...rest } = JSON.parse(schemaFile);
+  const filteredFields = fields.filter(({ type }) => {
+    return fieldTypes.includes(type);
+  });
+  return { ...rest, fields: filteredFields };
 }
 
 function createschema(schemaType) {
   const files = fs.readdirSync(path);
-  const availableSchemas = files
-    .filter(file => file.endsWith(extension))
-    .map(file => getFileName(file));
+  const availableSchemas = files.filter(file => file.endsWith(extension));
 
-  const hasSchema = availableSchemas.includes(`${schemaType}`);
+  const hasSchema = availableSchemas.includes(`${schemaType}${extension}`);
   if (hasSchema) {
     const schemaFile = fs.readFileSync(`${path}/${schemaType}${extension}`, 'utf8');
     return parseschema(schemaFile);

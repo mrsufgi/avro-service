@@ -4,5 +4,13 @@
   "env": {
     "jest/globals": true
   },
-  "rules": {}
+  "rules": {
+    "node/no-unpublished-require": [
+      "error",
+      {
+        "allowModules": ["supertest"],
+        "convertPath": null
+      }
+    ]
+  }
 }

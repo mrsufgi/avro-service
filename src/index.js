@@ -20,7 +20,6 @@ function initilize() {
       const schema = getschema(req.params.schemaType);
       res.send(schema);
     } catch (e) {
-      console.error(e.stack);
       res.status(500);
       res.send(`Error: could not get the schema of type, ${schemaType}`);
     }
@@ -35,7 +34,8 @@ function initilize() {
   });
 
   if (NODE_ENV !== 'TEST') {
-    app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+    // eslint-disable-next-line
+    app.listen(port, () => console.log(`listening on port ${port}!`));
   }
 }
 
