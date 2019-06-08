@@ -2,12 +2,11 @@
   "name": "bmd-service",
   "version": "1.0.0",
   "description": "The purpose of this exercise is to test your nodejs coding skills, and your logical thinking.",
-  "main": "index.js",
   "scripts": {
     "start": "node ./src/index.js",
     "test": "NODE_ENV=TEST jest"
   },
-  "author": "",
+  "author": "Ori Avraham",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^5.16.0",
@@ -23,6 +22,6 @@
     "uuid": "^3.3.2"
   },
   "engines": {
-    "node": ">=10.5.0"
+    "node": ">=12.4.0"
   }
 }

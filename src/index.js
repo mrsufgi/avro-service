@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-const { initilize: initilzeBMD, getschema, validate } = require('./bmd');
+const { initilize: initilzeBMD, getSchema, validate } = require('./bmd');
 const app = express();
 const port = 3000;
 
@@ -17,7 +17,7 @@ function initilize() {
   app.get('/schema/:schemaType', (req, res) => {
     const { schemaType } = req.params;
     try {
-      const schema = getschema(req.params.schemaType);
+      const schema = getSchema(req.params.schemaType);
       res.send(schema);
     } catch (e) {
       res.status(500);
@@ -30,7 +30,7 @@ function initilize() {
       body: { schemaType, schemaDict },
     } = req;
     const result = validate(schemaType, schemaDict);
-    res.send(result);
+    res.send({ isValid: result });
   });
 
   if (NODE_ENV !== 'TEST') {

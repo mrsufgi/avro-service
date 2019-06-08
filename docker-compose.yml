@@ -1,0 +1,8 @@
+version: '3'
+services:
+  bmd:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - "folder_path"
