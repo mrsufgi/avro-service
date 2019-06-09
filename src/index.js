@@ -1,18 +1,13 @@
 const express = require('express');
-const path = require('path');
+const { NODE_ENV } = process.env;
 const bodyParser = require('body-parser');
 
-const { initilize: initilzeBMD, getSchema, validate } = require('./bmd');
+const { getSchema, validate } = require('./bmd');
 const app = express();
 const port = 3000;
 
-const { folder_path: folderPath = './schemas', NODE_ENV } = process.env;
-
 // initilize service
 function initilize() {
-  const schemasPath = path.resolve(folderPath);
-  initilzeBMD(schemasPath);
-
   app.use(bodyParser.json());
   app.get('/schema/:schemaType', (req, res) => {
     const { schemaType } = req.params;
