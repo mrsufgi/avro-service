@@ -20,11 +20,11 @@ function initilize() {
     }
   });
 
-  app.post('/schema/validate', (req, res) => {
+  app.post('/schema/validate', async (req, res) => {
     const {
       body: { schemaType, schemaDict },
     } = req;
-    const result = validate(schemaType, schemaDict);
+    const result = await validate(schemaType, schemaDict);
     res.send({ isValid: result });
   });
 
